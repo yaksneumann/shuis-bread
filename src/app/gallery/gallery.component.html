@@ -1,0 +1,68 @@
+<div class="gallery-container">
+  <div class="gallery-header">
+    <h1>Our Bread Gallery</h1>
+    <p>A visual journey through our artisan breads and baking process</p>
+  </div>
+
+  <div class="gallery-filters">
+    @for (category of categories(); track category) {
+      <button 
+        (click)="setActiveCategory(category)"
+        [class.active]="activeCategory() === category"
+        class="filter-btn">
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="gallery-grid">
+    @for (image of filteredImages(); track image.id) {
+      <div 
+        class="gallery-item"
+        (click)="openModal(image)">
+        <div class="image-placeholder">
+          <span class="placeholder-icon">{{ image.placeholder }}</span>
+          <div class="image-overlay">
+            <h3>{{ image.title }}</h3>
+            <p>{{ image.description }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="placeholder-message">
+    <div class="message-card">
+      <h2>📸 Photos Coming Soon!</h2>
+      <p>
+        We're currently building our beautiful gallery of fresh breads, 
+        behind-the-scenes baking process, and happy customers. 
+        Check back soon to see our delicious creations in action!
+      </p>
+      <p>
+        Follow us on Instagram for daily bread photos and baking updates.
+      </p>
+      <a href="https://instagram.com" target="_blank" class="instagram-btn">
+        Follow on Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal for image viewing -->
+  @if (selectedImage()) {
+    <div 
+      class="modal-overlay"
+      (click)="closeModal()">
+      <div class="modal-content" (click)="$event.stopPropagation()">
+        <button class="close-btn" (click)="closeModal()">&times;</button>
+        <div class="modal-placeholder">
+          <span class="large-placeholder">{{ selectedImage()?.placeholder }}</span>
+        </div>
+        <div class="modal-info">
+          <h2>{{ selectedImage()?.title }}</h2>
+          <p>{{ selectedImage()?.description }}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

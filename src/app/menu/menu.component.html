@@ -1,0 +1,72 @@
+<div class="menu-container">
+  <div class="menu-header">
+    <h1>Our Artisan Bread Menu</h1>
+    <p>All our breads are handcrafted daily using traditional methods and premium ingredients</p>
+  </div>
+
+  <div class="menu-categories">
+    @for (category of categories(); track category) {
+      <button 
+        (click)="setActiveCategory(category)"
+        [class.active]="activeCategory() === category"
+        class="category-btn">
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="menu-grid">
+    @for (item of filteredItems(); track item.id) {
+      <div 
+        class="menu-item"
+        [class.unavailable]="!item.isAvailable">
+        <div class="item-header">
+          <h3>{{ item.name }}</h3>
+          <span class="price">{{ item.price }}</span>
+        </div>
+        <p class="description">{{ item.description }}</p>
+        @if (item.ingredients) {
+          <div class="ingredients">
+            <small>Ingredients: {{ item.ingredients.join(', ') }}</small>
+          </div>
+        }
+        @if (!item.isAvailable) {
+          <div class="unavailable-badge">
+            Currently Unavailable
+          </div>
+        }
+        @if (item.isAvailable) {
+          <div class="item-actions">
+            <button 
+              class="add-to-cart-btn"
+              (click)="addToCart(item)">
+              Add to Cart
+            </button>
+            @if (getCartQuantity(item.id) > 0) {
+              <span class="cart-quantity">
+                {{ getCartQuantity(item.id) }} in cart
+              </span>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="order-section">
+    <h2>Ready to Order?</h2>
+    <p>Contact us via WhatsApp to place your order or ask any questions about our breads.</p>
+    <a href="https://wa.me/972585781995" target="_blank" class="order-btn">
+      Order via WhatsApp
+    </a>
+    <div class="order-info">
+      <p><strong>Ordering Information:</strong></p>
+      <ul>
+        <li>Orders should be placed 24 hours in advance</li>
+        <li>Fresh breads baked daily in small batches</li>
+        <li>Pickup available or local delivery (additional fee may apply)</li>
+        <li>Special dietary requirements can be accommodated with advance notice</li>
+      </ul>
+    </div>
+  </div>
+</div>

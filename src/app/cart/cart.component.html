@@ -1,0 +1,100 @@
+<div class="cart-container">
+    <div class="cart-header">
+        <h1>Your Cart</h1>
+        @if (totalItems() === 0) {
+        <p>Your cart is empty. Browse our delicious breads to get started!</p>
+        }
+        @if (totalItems() > 0) {
+        <p>You have {{totalItems()}} item{{totalItems() === 1 ? '' : 's'}} in your cart</p>
+        }
+    </div>
+
+    @if (cartItems().length === 0) {
+    <div class="empty-cart">
+        <div class="empty-cart-icon">🛒</div>
+        <h2>Start Your Fresh Bread Journey</h2>
+        <p>Discover our artisan breads and add them to your cart for pickup</p>
+        <a routerLink="/menu" class="browse-menu-btn">Browse Our Menu</a>
+    </div>
+    }
+
+    @if (cartItems().length > 0) {
+    <div class="cart-content">
+        <div class="cart-items">
+            @for (item of cartItems(); track item.bread.id) {
+            <div class="cart-item">
+                <div class="item-image">
+                    <img [src]="'assets/images/' + item.bread.image" [alt]="item.bread.name" />
+                </div>
+
+                <div class="item-details">
+                    <h3>{{item.bread.name}}</h3>
+                    <p class="item-description">{{item.bread.description}}</p>
+                    <span class="item-category">{{item.bread.category | titlecase}}</span>
+                </div>
+
+                <div class="item-price">
+                    <span class="price">{{item.bread.price}}</span>
+                </div>
+
+                <div class="quantity-controls">
+                    <button class="quantity-btn decrease" (click)="decreaseQuantity(item.bread.id)"
+                        [disabled]="item.quantity <= 1">
+                        −
+                    </button>
+                    <span class="quantity">{{item.quantity}}</span>
+                    <button class="quantity-btn increase" (click)="increaseQuantity(item.bread.id)">
+                        +
+                    </button>
+                </div>
+
+                <div class="item-total">
+                    <span class="total-price">₪{{getItemTotal(item).toFixed(0)}}</span>
+                </div>
+
+                <button class="remove-btn" (click)="removeItem(item.bread.id)" title="Remove from cart">
+                    🗑️
+                </button>
+            </div>
+            }
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-card">
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Total Items:</span>
+                    <span>{{totalItems()}}</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>Total Price:</span>
+                    <span class="total-amount">₪{{totalPrice().toFixed(0)}}</span>
+                </div>
+
+                <div class="cart-actions">
+                    <button class="clear-cart-btn" (click)="clearCart()">
+                        Clear Cart
+                    </button>
+                    <a href="https://wa.me/972585781995?text=Hi! I'd like to place an order for: {{getOrderMessage()}}"
+                        target="_blank" class="checkout-btn">
+                        Order via WhatsApp
+                    </a>
+                </div>
+
+                <div class="pickup-note">
+                    <h3>📍 Pickup Information</h3>
+                    <p><strong>Note:</strong> Orders should be placed 24 hours in advance for guaranteed availability.
+                    </p>
+                    <p>We'll confirm your order details and pickup time via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    <div class="continue-shopping">
+        <a routerLink="/menu" class="continue-btn">← Continue Shopping</a>
+    </div>
+</div>

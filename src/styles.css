@@ -1,1 +1,105 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles for Shui's Artisan Bread */
+
+:root {
+  /* Bread-themed color palette */
+  --sourdough-brown: #8B4513;
+  --wheat-gold: #DAA520;
+  --cream-white: #FFF8DC;
+  --rustic-tan: #D2B48C;
+  --bakery-red: #B22222;
+  --sage-green: #87A96B;
+  --crust-golden: #CD853F;
+  --background-warm: #FAF0E6;
+  --text-light: #666666;
+  
+  /* Modern neutral palette */
+  --charcoal: #2C2C2C;
+  --warm-gray: #5D5D5D;
+  --light-gray: #F5F5F5;
+  --white: #FFFFFF;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sourdough-brown: #D2691E;
+    --wheat-gold: #e6d081;
+    --cream-white: #2C2C2C;
+    --rustic-tan: #8B7355;
+    --bakery-red: #FF6B6B;
+    --sage-green: #A8C686;
+    --crust-golden: #E6B800;
+    --background-warm: #1A1A1A;
+    --text-light: #B0B0B0;
+    
+    --charcoal: #F0F0F0;
+    --warm-gray: #D0D0D0;
+    --light-gray: #2A2A2A;
+    --white: #1E1E1E;
+  }
+  
+  body {
+    background: var(--white);
+    color: var(--charcoal);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--charcoal);
+  background: var(--cream-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--sourdough-brown);
+  line-height: 1.3;
+}
+
+a {
+  color: var(--sourdough-brown);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--wheat-gold);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mt-3 { margin-top: 3rem; }

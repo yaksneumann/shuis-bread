@@ -1,0 +1,184 @@
+<div class="contact-container">
+  <div class="contact-header">
+    <h1>Get in Touch</h1>
+    <p>Ready to order or have questions? We'd love to hear from you!</p>
+  </div>
+
+  <div class="contact-content">
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      
+      <div class="contact-methods">
+        <div class="contact-method primary">
+          <div class="method-icon">📱</div>
+          <div class="method-content">
+            <h3>WhatsApp Orders</h3>
+            <p>The fastest way to place your order!</p>
+            <a href="https://wa.me/972585781995" target="_blank" class="contact-btn whatsapp">
+              Order via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">📸</div>
+          <div class="method-content">
+            <h3>Follow Us</h3>
+            <p>See our daily fresh breads and behind-the-scenes content</p>
+            <a href="https://instagram.com" target="_blank" class="contact-btn instagram">
+              Follow on Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">📧</div>
+          <div class="method-content">
+            <h3>Email</h3>
+            <p>For detailed inquiries and special requests</p>
+            <a href="mailto:hello@shuisbread.com" class="contact-link">
+              hello@shuisbread.com
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="method-icon">📞</div>
+          <div class="method-content">
+            <h3>Phone</h3>
+            <p>Call us for immediate assistance</p>
+            <a href="tel:+1234567890" class="contact-link">
+              +1 (234) 567-8900
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="business-hours">
+        <h3>Business Hours</h3>
+        <div class="hours-grid">
+          <div class="hours-row">
+            <span class="day">Monday - Friday</span>
+            <span class="time">7:00 AM - 6:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Saturday</span>
+            <span class="time">8:00 AM - 5:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Sunday</span>
+            <span class="time">9:00 AM - 3:00 PM</span>
+          </div>
+        </div>
+        <p class="hours-note">
+          <strong>Note:</strong> Orders should be placed 24 hours in advance for guaranteed availability.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-form-section">
+      <h2>Send Us a Message</h2>
+      <form class="contact-form" (ngSubmit)="submitForm()" #contactForm="ngForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            [(ngModel)]="formData().name"
+            name="name"
+            required
+            class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            [(ngModel)]="formData().email"
+            name="email"
+            required
+            class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            [(ngModel)]="formData().phone"
+            name="phone"
+            class="form-input">
+        </div>
+
+        <div class="form-group">
+          <label for="orderType">Inquiry Type</label>
+          <select 
+            id="orderType" 
+            [(ngModel)]="formData().orderType"
+            name="orderType"
+            class="form-input">
+            <option value="">Select an option</option>
+            <option value="order">Place an Order</option>
+            <option value="custom">Custom Order Request</option>
+            <option value="catering">Catering Inquiry</option>
+            <option value="general">General Question</option>
+            <option value="feedback">Feedback</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea 
+            id="message" 
+            [(ngModel)]="formData().message"
+            name="message"
+            required
+            rows="5"
+            class="form-input"
+            placeholder="Tell us about your bread needs, special requests, or any questions you have..."></textarea>
+        </div>
+
+        <button 
+          type="submit" 
+          class="submit-btn"
+          [disabled]="!contactForm.form.valid">
+          Send Message
+        </button>
+      </form>
+
+      @if (isSubmitted()) {
+        <div class="success-message">
+          <h3>Message Sent!</h3>
+          <p>Thank you for reaching out. We'll get back to you within 24 hours!</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="quick-order-section">
+    <h2>Quick Order Guide</h2>
+    <div class="order-steps">
+      <div class="order-step">
+        <div class="step-number">1</div>
+        <h3>Choose Your Bread</h3>
+        <p>Browse our menu and decide what delicious breads you'd like</p>
+      </div>
+      <div class="order-step">
+        <div class="step-number">2</div>
+        <h3>Contact Us</h3>
+        <p>WhatsApp us with your order at least 24 hours in advance</p>
+      </div>
+      <div class="order-step">
+        <div class="step-number">3</div>
+        <h3>Confirm Details</h3>
+        <p>We'll confirm your order, pickup time, and total cost</p>
+      </div>
+      <div class="order-step">
+        <div class="step-number">4</div>
+        <h3>Enjoy Fresh Bread</h3>
+        <p>Pick up your warm, freshly baked artisan breads!</p>
+      </div>
+    </div>
+  </div>
+</div>
