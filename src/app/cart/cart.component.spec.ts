@@ -13,7 +13,7 @@ describe('CartComponent', () => {
     id: 1,
     name: 'Classic Sourdough',
     description: 'Traditional sourdough with perfect crust',
-    price: '₪30',
+    price: '₪25',
     category: 'sourdough',
     image: 'sourdough-classic.jpg'
   };

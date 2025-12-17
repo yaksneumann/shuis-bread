@@ -42,31 +42,31 @@ export class MenuComponent {
       id: 2,
       name: 'Whole Grain Sourdough',
       description: 'Hearty and nutritious bread featuring a blend of whole grains and seeds, naturally fermented for easy digestion.',
-      price: '₪35',
+      price: '₪30',
       category: 'Sourdough',
       image: 'sourdough-whole-grain.jpg',
       isAvailable: true,
       ingredients: ['Organic whole wheat flour', 'Rye flour', 'Sourdough starter', 'Sunflower seeds', 'Sea salt']
     },
-    {
-      id: 3,
-      name: 'Rye Sourdough',
-      description: 'Dense, flavorful European-style rye bread with caraway seeds and a distinctive tangy taste.',
-      price: '₪36',
-      category: 'Sourdough',
-      image: 'sourdough-rye.jpg',
-      isAvailable: true,
-      ingredients: ['Organic rye flour', 'Wheat flour', 'Sourdough starter', 'Caraway seeds', 'Sea salt']
-    },
+    // {
+    //   id: 3,
+    //   name: 'Rye Sourdough',
+    //   description: 'Dense, flavorful European-style rye bread with caraway seeds and a distinctive tangy taste.',
+    //   price: '₪36',
+    //   category: 'Sourdough',
+    //   image: 'sourdough-rye.jpg',
+    //   isAvailable: true,
+    //   ingredients: ['Organic rye flour', 'Wheat flour', 'Sourdough starter', 'Caraway seeds', 'Sea salt']
+    // },
     {
       id: 4,
       name: 'Everything Bagels',
       description: 'Hand-rolled bagels topped with our signature everything seasoning blend. Boiled and baked fresh daily.',
-      price: '₪9 each',
+      price: '₪8 each',
       category: 'Bagels',
       image: 'bagel-everything.jpg',
       isAvailable: true,
-      ingredients: ['Bread flour', 'Water', 'Yeast', 'Salt', 'Everything seasoning']
+      ingredients: ['Bread flour', 'Water', 'Salt', 'Everything seasoning']
     },
     {
       id: 5,
@@ -82,17 +82,17 @@ export class MenuComponent {
       id: 6,
       name: 'Plain Bagels',
       description: 'Simple, classic bagels perfect for any topping. Crispy outside, chewy inside.',
-      price: '₪7 each',
+      price: '₪8 each',
       category: 'Bagels',
       image: 'bagel-plain.jpg',
       isAvailable: true,
-      ingredients: ['Bread flour', 'Water', 'Yeast', 'Salt']
+      ingredients: ['Bread flour', 'Water', 'Salt']
     },
     {
       id: 7,
       name: 'Traditional Challah',
       description: 'Braided egg bread that\'s slightly sweet and incredibly soft. Perfect for Shabbat or any special occasion.',
-      price: '₪43',
+      price: '₪25',
       category: 'Traditional',
       image: 'challah-traditional.jpg',
       isAvailable: true,
@@ -112,7 +112,7 @@ export class MenuComponent {
       id: 9,
       name: 'German Pretzels (Laugenbrezeln)',
       description: 'Authentic Bavarian-style soft pretzels with coarse salt. Made with traditional lye wash for that distinctive flavor.',
-      price: '₪13 each',
+      price: '₪10 each',
       category: 'German',
       image: 'pretzel-german.jpg',
       isAvailable: true,
